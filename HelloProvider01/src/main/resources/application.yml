@@ -1,7 +1,7 @@
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8887/eureka,http://localhost:8887/eureka
+      defaultZone: http://localhost:8888/eureka,http://localhost:8887/eureka
 spring:
   application:
     name: HelloProvider

@@ -8,18 +8,27 @@ spring:
     loadbalancer:
       retry:
         enabled: true
+
 USERPROVIDER:
   ribbon: #配置指定服务的负载均衡策略
      NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
     # 是否对所有操作都进行重试
      OkToRetryOnAllOperations: true
     # 切换实例的重试次数
-     MaxAutoRetriesNextServer: 1
+     MaxAutoRetriesNextServer: 6
     # 对当前实例的重试次数
-     MaxAutoRetries: 1
+     MaxAutoRetries: 6
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8887/eureka,http://localhost:8889/eureka
+      defaultZone: http://localhost:8888/eureka,http://localhost:8889/eureka
 server:
   port: 9004
+#s设置熔断超时时间
+hystrix:
+ command:
+   default:
+    execution:
+       isolation:
+          thread:
+             timeoutInMilliseconds: 600000

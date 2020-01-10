@@ -6,10 +6,37 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8887/eureka,http://localhost:8889/eureka
+      defaultZone: http://localhost:8888/eureka,http://localhost:8889/eureka
 server:
   port: 9006
 logging:
   level:
     com:
       ujiuy: debug
+#开启熔断
+feign:
+  hystrix:
+    enabled: true
+#总链接超时时间=（切换服务实例次数+1）*（每个实例重试次数+1）*超时连接时间
+USERPROVIDER:
+  ribbon:
+  #配置指定服务的负载均衡策略
+     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    # Ribbon 的连接超时时间
+     ConnectTimeout: 250
+    # Ribbon 的数据读取超时时间
+     ReadTimeout: 250
+    # 是否对所有操作都进行重试
+     OkToRetryOnAllOperations: true
+    # 切换实例的重试次数
+     MaxAutoRetriesNextServer: 1
+    # 对当前实例的重试次数
+     MaxAutoRetries: 6
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 600000
+

@@ -1,11 +1,12 @@
 package com.ujiuy.service;
 
+import com.ujiuy.FeiGnConfig;
 import com.ujiuy.po.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
-@FeignClient(value = "USERPROVIDER")
+@FeignClient(value = "USERPROVIDER",configuration = FeiGnConfig.class,fallback = UserServiceImpl.class)
 public interface UserService {
 @GetMapping("/")
     public Map finAll();

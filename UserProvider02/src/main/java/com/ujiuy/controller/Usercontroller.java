@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 @RestController
 public class Usercontroller {
@@ -21,13 +22,13 @@ public class Usercontroller {
         List<User> list = userService.finAll();
         map.put("list",list);
         map.put("version","UserProvider02");
-       /* int sleep = new Random().nextInt(1000);
-        System.out.println("服务1，休息:"+sleep);
+       int sleep = new Random().nextInt(1500);
+        System.out.println("服务2，休息:"+sleep);
         try {
             Thread.sleep(sleep);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }*/
+        }
         return map;
     }
   @GetMapping("/toEdit/{id}")
