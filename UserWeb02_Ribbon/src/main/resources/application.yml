@@ -3,6 +3,20 @@ spring:
     name: UserWeb02
   thymeleaf:
     cache: false
+  cloud:
+    #开启重试
+    loadbalancer:
+      retry:
+        enabled: true
+USERPROVIDER:
+  ribbon: #配置指定服务的负载均衡策略
+     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    # 是否对所有操作都进行重试
+     OkToRetryOnAllOperations: true
+    # 切换实例的重试次数
+     MaxAutoRetriesNextServer: 1
+    # 对当前实例的重试次数
+     MaxAutoRetries: 1
 eureka:
   client:
     service-url:
