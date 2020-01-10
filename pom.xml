@@ -12,6 +12,8 @@
         <module>EurekaServers02</module>
         <module>UserPeovider</module>
         <module>UserWeb01</module>
+        <module>UserProvider02</module>
+        <module>UserWeb02_Ribbon</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
