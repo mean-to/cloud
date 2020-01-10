@@ -6,9 +6,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class JpaThymeleafApplication {
+public class JpaThymeleafApplication02 {
     public static void main(String[] args) {
-        SpringApplication.run(JpaThymeleafApplication.class, args);
+        SpringApplication.run(JpaThymeleafApplication02.class, args);
     }
 
 }
