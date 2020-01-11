@@ -1,0 +1,14 @@
+
+spring:
+  application:
+    name: config_server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/mean-to/config_
+          search-paths:
+          username: 2572482562@qq.com
+          password: ma19980105
+server:
+  port: 8890

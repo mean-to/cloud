@@ -13,7 +13,7 @@ public class UserServiceImpl implements UserService {
         System.out.println("查询操作失败，触发熔断");
         HashMap<Object, Object> map = new HashMap<>();
         map.put("ulist",new ArrayList<>());
-        map.put("version","出阿发熔断");
+        map.put("version","熔断");
         return map;
     }
 

@@ -16,6 +16,8 @@
         <module>UserWeb02_Ribbon</module>
         <module>UserWeb03_Feign</module>
         <module>hystrix</module>
+        <module>Hystrix_Dashboard</module>
+        <module>Config_Server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

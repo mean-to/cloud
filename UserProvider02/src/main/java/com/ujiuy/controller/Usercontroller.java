@@ -3,6 +3,8 @@ package com.ujiuy.controller;
 import com.ujiuy.po.User;
 import com.ujiuy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,16 +14,20 @@ import java.util.Map;
 import java.util.Random;
 
 @RestController
+@RefreshScope
 public class Usercontroller {
     @Autowired
     UserService userService;
+    @Value("${version}")
+    String version;
+
     @GetMapping("/")
 
     public Map findAll(){
         Map map=new HashMap();
         List<User> list = userService.finAll();
         map.put("list",list);
-        map.put("version","UserProvider02");
+        map.put("version",version);
        int sleep = new Random().nextInt(1500);
         System.out.println("服务2，休息:"+sleep);
         try {
