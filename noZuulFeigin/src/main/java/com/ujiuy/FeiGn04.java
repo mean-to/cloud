@@ -1,6 +1,7 @@
 package com.ujiuy;
 
 
+
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,14 +17,15 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.ServletRegistration;
 
+
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
 @EnableCircuitBreaker
-public class JpaWeb03_Feign {
+public class FeiGn04 {
 
     public static void main(String[] args) {
-        SpringApplication.run(JpaWeb03_Feign.class, args);
+        SpringApplication.run(FeiGn04.class, args);
     }
     @Bean
     @LoadBalanced
@@ -31,14 +33,6 @@ public class JpaWeb03_Feign {
         HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
         return  new RestTemplate();
     }
-@Bean
-    public ServletRegistrationBean getServlet(){
-    HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
-    ServletRegistrationBean RegistrationBean = new ServletRegistrationBean(streamServlet);
-    RegistrationBean.setLoadOnStartup(1);
-    RegistrationBean.setName("HystrixMetricsStreamServle");
-    RegistrationBean.addUrlMappings("/hystrix.stream");
-    return RegistrationBean;
-}
+
 }
 

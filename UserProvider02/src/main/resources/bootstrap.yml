@@ -1,8 +1,15 @@
 spring:
   application:
-    name: Userprovider
+    name: Userprovider02
   cloud:
     config:
+      discovery:
+        enabled: true
+        service-id: CONFIG_SERVER
       profile: test02
       label: master
-      uri: http://localhost:8890
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka,http://localhost:8889/eureka
+

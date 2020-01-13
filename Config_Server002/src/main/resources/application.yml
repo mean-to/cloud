@@ -1,7 +1,3 @@
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8888/eureka,http://localhost:8889/eureka
 spring:
   application:
     name: config_server
@@ -14,4 +10,8 @@ spring:
           username: 2572482562@qq.com
           password: ma19980105
 server:
-  port: 8890
+  port: 8891
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka,http://localhost:8889/eureka

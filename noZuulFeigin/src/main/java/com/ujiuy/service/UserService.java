@@ -1,21 +1,20 @@
 package com.ujiuy.service;
 
-import com.ujiuy.FeiGnConfig;
 import com.ujiuy.po.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
-@FeignClient(value = "ZUUL",configuration = FeiGnConfig.class,fallback = UserServiceImpl.class)
+@FeignClient(value = "USERPROVIDER",fallback = UserServiceImpl.class)
 public interface UserService {
-@GetMapping("/userprovider?accessToken=44")
+@GetMapping("/")
     public Map finAll();
-@GetMapping("/userprovider/toEdit/{id}")
+@GetMapping("/toEdit/{id}")
     public User findOne(@PathVariable Long id);
-@PutMapping ("/userprovider/update")
+@PutMapping ("/update")
     public void update(User user);
-@DeleteMapping("/userprovider/delete/{id}")
+@DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id);
-@PostMapping("/userprovider/add")
+@PostMapping("/add")
     public void add(User user);
 }

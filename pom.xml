@@ -15,9 +15,13 @@
         <module>UserProvider02</module>
         <module>UserWeb02_Ribbon</module>
         <module>UserWeb03_Feign</module>
-        <module>hystrix</module>
+
         <module>Hystrix_Dashboard</module>
         <module>Config_Server</module>
+
+        <module>Config_Server002</module>
+        <module>ZuuGatelWay</module>
+        <module>noZuulFeigin</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

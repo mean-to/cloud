@@ -1,6 +1,6 @@
 spring:
   application:
-    name: UserWeb03
+    name: UserWeb04
   thymeleaf:
     cache: false
 eureka:
@@ -8,7 +8,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:8888/eureka,http://localhost:8889/eureka
 server:
-  port: 9006
+  port: 9009
 logging:
   level:
     com:
